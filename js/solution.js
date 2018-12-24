@@ -100,7 +100,8 @@ function initApp() {
   };
 
   const hideComments = ( radioBtn ) => {
-  	Array.from(app.getElementsByClassName('comments__form')).forEach(comments => {
+  	Array.from(app.getElementsByClassName('comments__form'))
+					.forEach(comments => {
 		  if (radioBtn.value === 'on') {
 		  	showElement(comments);
 		  } else {
@@ -112,7 +113,8 @@ function initApp() {
 
   const getDate = ( timestamp ) => {
 	  const date = new Date(timestamp),
-	   			options = { day: '2-digit', month: '2-digit', year: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+	   			options = { day: '2-digit', month: '2-digit', year: '2-digit',
+					 						hour: '2-digit', minute: '2-digit', second: '2-digit' };
 	  return date.toLocaleString('ru-RU', options);
 	};
 
@@ -528,7 +530,7 @@ function initApp() {
   };
 
   const pressEnter = ( event ) => {
-    if (!event.repeat /*&& !event.shiftKey*/ && event.code === 'Enter' && event.target.classList.contains('comments__input')) {
+    if (!event.repeat && event.code === 'Enter' && event.target.classList.contains('comments__input')) {
       if (event.shiftKey) { return ; }
       const submit = event.target.nextElementSibling.nextElementSibling;
       submit.dispatchEvent( new MouseEvent('click', event) );
@@ -660,7 +662,6 @@ function initApp() {
       stroke.push(makePoint(event.offsetX, event.offsetY));
       strokes.push(stroke);
       needsRendering = true;
-      //throttleSendMask();
     });
 
     canvas.addEventListener('mousemove', ( event ) => {
