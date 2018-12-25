@@ -67,6 +67,18 @@ function initApp() {
     }
   };
 
+	const debounce = ( func, delay = 0 ) => {
+	    let timeout;
+
+	    return () => {
+	        clearTimeout(timeout);
+	        timeout = setTimeout(() => {
+	            timeout = null;
+	            func();
+	        }, delay);
+	    };
+	}
+
   const getSessionSettings = ( key ) => {
   	try {
 			if (sessionStorage[key]) {
@@ -664,12 +676,15 @@ function initApp() {
       needsRendering = true;
     });
 
+		const debounceSendMask = debounce(sendMask, 2000);
+
     canvas.addEventListener('mousemove', ( event ) => {
       if (isDrawing) {
         const stroke = strokes[0];
         stroke.push(makePoint(event.offsetX, event.offsetY));
         needsRendering = true;
-        throttleSendMask();
+        // throttleSendMask();
+				debounceSendMask();
       }
     });
 
@@ -683,7 +698,7 @@ function initApp() {
   //<------------------------------>
 
     function sendMask() {
-	    canvas.toBlob(blob => {
+			canvas.toBlob(blob => {
 	    	new Promise((done, fail) => {
 	    		socket.send(blob);
 	    		canvasCtx.clearRect(0, 0, canvas.width, canvas.height);
@@ -786,7 +801,7 @@ function initApp() {
 			  break;
 
 			  case 'mask':
-			  	canvas.style.background = `url(${wssResponse.url})`;
+					canvas.style.background = `url(${wssResponse.url})`;
 			  break;
 			}
     };
