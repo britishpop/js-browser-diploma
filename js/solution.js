@@ -52,20 +52,20 @@ function initApp() {
 
   //<------------------------------>
 
-  const throttle = ( cb, isAnimation, delay ) => {
-    let isWaiting = false;
-    return function (...args) {
-      if (!isWaiting) {
-        cb.apply(this, args);
-        isWaiting = true;
-        if (isAnimation) {
-        	requestAnimationFrame(() => isWaiting = false);
-        } else {
-        	setTimeout(() => isWaiting = false, delay);
-        }
-      }
-    }
-  };
+  // const throttle = ( cb, isAnimation, delay ) => {
+  //   let isWaiting = false;
+  //   return function (...args) {
+  //     if (!isWaiting) {
+  //       cb.apply(this, args);
+  //       isWaiting = true;
+  //       if (isAnimation) {
+  //       	requestAnimationFrame(() => isWaiting = false);
+  //       } else {
+  //       	setTimeout(() => isWaiting = false, delay);
+  //       }
+  //     }
+  //   }
+  // };
 
 	const debounce = ( func, delay = 0 ) => {
 	    let timeout;
