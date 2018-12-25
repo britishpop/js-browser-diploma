@@ -261,7 +261,7 @@ function initApp() {
   //<------------------------------>
 
   const postImage = ( path, file ) => {
-    const formData = new FormData(),
+		const formData = new FormData(),
 					name = file.name.replace(/\.\w*$/, '');
 
 		formData.append('title', name);
@@ -758,8 +758,8 @@ function initApp() {
 
     	switch(wssResponse.event) {
 			  case 'pic':
-			  	console.log(wssResponse.pic);
-          if (wssResponse.pic) {
+					console.log(wssResponse.pic);
+          if (wssResponse.pic.mask) {
             canvas.style.background = `url(${wssResponse.pic.mask})`;
           } else {
             canvas.style.background = '';
