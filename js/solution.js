@@ -585,7 +585,7 @@ function initApp() {
       const prevCommentsFormCheckbox = picture.querySelector('.comments__marker-checkbox[disabled=""]');
       toggleDisplayCommentsForm(prevCommentsFormCheckbox, false);
 
-      const newCommentsForm = crtNewCommentsForm(event.pageX - clickPointShifts.left, event.pageY - clickPointShifts.top);
+      const newCommentsForm = crtNewCommentsForm(event.offsetX - clickPointShifts.left, event.offsetY - clickPointShifts.top);
       picture.appendChild(newCommentsForm);
       newCommentsForm.querySelector('.comments__marker-checkbox').checked = true;
       newCommentsForm.querySelector('.comments__marker-checkbox').disabled = true;
@@ -725,6 +725,8 @@ function initApp() {
   function maskSize(image, imageMask) {
 	  imageMask.style.width = image.clientWidth + 'px';
 	  imageMask.style.height = image.clientHeight + 'px';
+    picture.style.width = image.clientWidth + 'px';
+    picture.style.height = image.clientHeight + 'px';
   };
 
   //<------------------------------>
