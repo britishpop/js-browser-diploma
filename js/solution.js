@@ -784,11 +784,11 @@ function initApp() {
 
       switch(wssResponse.event) {
         case 'pic':
+          maskSize(image, imageMask);
           if (wssResponse.pic.mask) {
-            maskSize(image, imageMask);
             imageMask.style.background = `url(${wssResponse.pic.mask})`;
           } else {
-            canvas.style.background = '';
+            imageMask.style.background = '';
           }
         break;
 
