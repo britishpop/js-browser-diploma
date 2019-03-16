@@ -9,10 +9,10 @@
 
   <body>
     <div class="wrap app" data-state="initial">
-      <ul class="menu">
+      <ul class="menu" data-state="initial">
         <li class="menu__item drag"></li>
 
-        <li class="menu__item burger">
+        <li class="menu__item burger" style="display: none;">
           <i class="burger-icon"></i>
         </li>
 
@@ -56,12 +56,12 @@
       </ul>
 
       <img class="current-image" src="./pic/image.jpg">
-      
+
       <div class="error" style="display: none;">
         <h4 class="error__header">Ошибка</h4>
         <p class="error__message">Неверный формат файла. Пожалуйста, выберите изображение в формате .jpg или .png.</p>
       </div>
-      
+
       <div class="image-loader" style="display: none;">
         <div class="loader">
           <span></span>
@@ -71,8 +71,8 @@
           <span></span>
         </div>
         <p class="image-loader__message">Загружаю изображение...</p>
-      </div>      
-      
+      </div>
+
       <form class="comments__form">
         <span class="comments__marker"></span><input type="checkbox" class="comments__marker-checkbox">
         <div class="comments__body">
@@ -95,8 +95,8 @@
               <span></span>
               <span></span>
               <span></span>
-            </div>            
-          </div>          
+            </div>
+          </div>
           <textarea class="comments__input" type="text" placeholder="Напишите ответ..."></textarea>
           <input class="comments__close" type="button" value="Закрыть">
           <input class="comments__submit" type="submit" value="Отправить">
