@@ -725,7 +725,6 @@ function initApp() {
   function maskSize(image, imageMask) {
 	  imageMask.style.width = image.clientWidth + 'px';
 	  imageMask.style.height = image.clientHeight + 'px';
-    debugger;
   };
 
   //<------------------------------>
