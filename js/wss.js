@@ -1,8 +1,6 @@
 'use strict';
 
 function initWSSConnection( id ) {
-  debugger;
-
   socket = new WebSocket('wss:' + apiURL + '/' + id);
 
   function addCommentInDirectory(	comment, directory ) {

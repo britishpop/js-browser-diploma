@@ -3,12 +3,16 @@
 function initDraw( event ) {
 	drawBtn.removeEventListener('click', initDraw);
 
+	const penWidth = 4;
+	debugger;
+
 	const canvasCtx = canvas.getContext('2d');
 	canvas.width = image.clientWidth;
 	canvas.height = image.clientHeight;
 	canvasCtx.strokeStyle = getComputedStyle(checkedColorBtn.nextElementSibling).backgroundColor;
 	canvasCtx.lineWidth = penWidth;
 	showElement(canvas);
+
 
 	let penColor = getComputedStyle(checkedColorBtn.nextElementSibling).backgroundColor,
 		strokes = [],
@@ -57,6 +61,10 @@ function initDraw( event ) {
 		strokes.push(stroke);
 		needsRendering = true;
 	});
+
+	canvas.addEventListener('mousedown', ( event ) => {
+		console.log(event);
+	})
 
 	const debounceSendMask = debounce(sendMask, 2000);
 
@@ -109,5 +117,4 @@ function maskSize(image, imageMask) {
 	imageMask.style.height = image.clientHeight + 'px';
 	imageMask.style.left = image.offsetLeft;
 	imageMask.style.top = image.offsetTop;
-	debugger;
 };
