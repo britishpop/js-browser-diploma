@@ -86,6 +86,10 @@ body {
   z-index: 0;
 }
 
+.background-placeholder {
+  position:absolute;
+}
+
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~ иконки на панели ~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 .drag {
